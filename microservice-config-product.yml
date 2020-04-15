@@ -1,72 +1,71 @@
-#注意：如果在记事本上编写，下面的缩进不能按tab键，不然报错
+#注意：如果在记事本上编写，下面的缩进不要使用Tab来缩进，不然报错
 spring:
   profiles:
-    active: dev #激活开发环境配置
+    active: dev # 激活开发环境配置
 ---
 server:
-  port: 8001 #端口号
+  port: 8001
 mybatis:
-  config-location: classpath:mybatis/mybatis.cfg.xml  #mybatis配置文件所在路径
-  type-aliases-package: com.mengxuegu.springcloud.entities  #所有entities各种类所在包
-  mapper-location: classpath:mybatis/mapper/**/*.xml  #mapper映射文件
+  config-location: classpath:mybatis/mybatis.cfg.xml 
+  type-aliases-package: com.mengxuegu.springcloud.entities
+  mapper-locations: classpath:mybatis/mapper/**/*.xml
 spring:
-  profiles: dev #开发环境
+  profiles: dev # 开发环境
   application:
-    name: microservice-product-config  #服务名
+    name: microservice-product-config			# ******服务名*******
   datasource:
-    type: com.alibaba.druid.pool.DruidDataSource  #当前数据库操作类型
-    driver-class-name: com.mysql.cj.jdbc.Driver  #mysql驱动包
-    url: jdbc:mysql://192.168.10.11:33306/springcloud_db01?serverTimezone=GMT%2B8  #数据库名称
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.10.11:33306/springcloud_db01?serverTimezone=GMT%2B8 #数据库连接地址，
     username: root
     password: 123456
     dbcp2:
-      min-idle: 5  #连接池最小维持连接数
-      initial-size: 5  #初始化连接数
-      max-total: 5  #最大连接数
-      max-wait-millis: 150  #等待连接获取的最大超时时间
+      min-idle: 5
+      initial-size: 5
+      max-total: 5
+      max-wait-millis: 150
 
 eureka:
   client:
     registerWithEureka: true
-    fetchRegisty: true
-    serviceUrl: #Eureka客户端与Eureka服务端的交互地址，集群版配置对方地址，单机版配置自己(如果不配置，则默认本机8761端口)
+    fetchRegistry: true
+    serviceUrl:
       defaultZone: http://192.168.10.11:6001/eureka
   instance:
-    instanceId: ${spring.application.name}:${server.port}  #指定实例Id，就不会显示主机名
-    prefer-ip-address: true  #访问路径可以显示ip地址
+    instanceId: ${spring.application.name}:${server.port}
+    prefer-ip-address: true 
 ---
 server:
-  port: 8001 #端口号
+  port: 8001
 mybatis:
-  config-location: classpath:mybatis/mybatis.cfg.xml  #mybatis配置文件所在路径
-  type-aliases-package: com.mengxuegu.springcloud.entities  #所有entities各种类所在包
-  mapper-location: classpath:mybatis/mapper/**/*.xml  #mapper映射文件
+  config-location: classpath:mybatis/mybatis.cfg.xml 
+  type-aliases-package: com.mengxuegu.springcloud.entities
+  mapper-locations: classpath:mybatis/mapper/**/*.xml
 spring:
-  profiles: prod #生产环境
+  profiles: prod # 生产环境
   application:
-    name: microservice-product-config  #服务名
+    name: microservice-product-config			# ******服务名*******
   datasource:
-    type: com.alibaba.druid.pool.DruidDataSource  #当前数据库操作类型
-    driver-class-name: com.mysql.cj.jdbc.Driver  #mysql驱动包
-    url: jdbc:mysql://192.168.10.11:33306/springcloud_db02?serverTimezone=GMT%2B8  #数据库名称
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.10.11:33306/springcloud_db02?serverTimezone=GMT%2B8 #数据库连接地址，
     username: root
     password: 123456
     dbcp2:
-      min-idle: 5  #连接池最小维持连接数
-      initial-size: 5  #初始化连接数
-      max-total: 5  #最大连接数
-      max-wait-millis: 150  #等待连接获取的最大超时时间
+      min-idle: 5
+      initial-size: 5
+      max-total: 5
+      max-wait-millis: 150
 
 eureka:
   client:
     registerWithEureka: true
-    fetchRegisty: true
-    serviceUrl: #Eureka客户端与Eureka服务端的交互地址，集群版配置对方地址，单机版配置自己(如果不配置，则默认本机8761端口)
+    fetchRegistry: true
+    serviceUrl:
       defaultZone: http://192.168.10.11:6001/eureka
   instance:
-    instanceId: ${spring.application.name}:${server.port}  #指定实例Id，就不会显示主机名
-    prefer-ip-address: true  #访问路径可以显示ip地址
+    instanceId: ${spring.application.name}:${server.port}
+    prefer-ip-address: true 
     
-  emp:
-    name: zhangsan
-#保存时注意选择UTF-8保存
+emp: 
+  name: zhangsan
