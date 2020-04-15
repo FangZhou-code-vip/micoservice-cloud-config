@@ -16,9 +16,9 @@ spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource  #当前数据库操作类型
     driver-class-name: com.mysql.cj.jdbc.Driver  #mysql驱动包
-    url: jdbc:mysql://127.0.0.1:3306/springcloud_db01?serverTimezone=GMT%2BB  #数据库名称
+    url: jdbc:mysql://192.168.10.11:33306/springcloud_db01?serverTimezone=GMT%2B8  #数据库名称
     username: root
-    password: root
+    password: 123456
     dbcp2:
       min-idle: 5  #连接池最小维持连接数
       initial-size: 5  #初始化连接数
@@ -30,7 +30,7 @@ eureka:
     registerWithEureka: true
     fetchRegisty: true
     serviceUrl: #Eureka客户端与Eureka服务端的交互地址，集群版配置对方地址，单机版配置自己(如果不配置，则默认本机8761端口)
-      defaultZone: http://eureka6001.com:6001/eureka
+      defaultZone: http://192.168.10.11:6001/eureka
   instance:
     instanceId: ${spring.application.name}:${server.port}  #指定实例Id，就不会显示主机名
     prefer-ip-address: true  #访问路径可以显示ip地址
@@ -48,9 +48,9 @@ spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource  #当前数据库操作类型
     driver-class-name: com.mysql.cj.jdbc.Driver  #mysql驱动包
-    url: jdbc:mysql://127.0.0.1:3306/springcloud_db02?serverTimezone=GMT%2BB  #数据库名称
+    url: jdbc:mysql://192.168.10.11:33306/springcloud_db02?serverTimezone=GMT%2B8  #数据库名称
     username: root
-    password: root
+    password: 123456
     dbcp2:
       min-idle: 5  #连接池最小维持连接数
       initial-size: 5  #初始化连接数
@@ -62,8 +62,11 @@ eureka:
     registerWithEureka: true
     fetchRegisty: true
     serviceUrl: #Eureka客户端与Eureka服务端的交互地址，集群版配置对方地址，单机版配置自己(如果不配置，则默认本机8761端口)
-      defaultZone: http://eureka6001.com:6001/eureka
+      defaultZone: http://192.168.10.11:6001/eureka
   instance:
     instanceId: ${spring.application.name}:${server.port}  #指定实例Id，就不会显示主机名
-    prefer-ip-address: true  #访问路径可以显示ip地址    
+    prefer-ip-address: true  #访问路径可以显示ip地址
+    
+  emp:
+    name: zhangsan
 #保存时注意选择UTF-8保存
